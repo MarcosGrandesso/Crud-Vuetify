@@ -1,14 +1,19 @@
 <template>
   <div class="d-flex justify-center flex-column wid">
-    <v-card class="mx-auto" max-width="344">
+    <v-card
+      class="mx-auto"
+      max-width="344"
+      :key="projeto.id"
+      v-for="projeto in proj"
+    >
       <v-img
         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
         height="200px"
       ></v-img>
 
-      <v-card-title> Top western road trips </v-card-title>
+      <v-card-title> {{ projeto }} </v-card-title>
 
-      <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
+      <v-card-subtitle> </v-card-subtitle>
 
       <v-card-actions>
         <v-btn color="orange lighten-2" text> Explore </v-btn>
@@ -42,5 +47,8 @@ export default {
   data: () => ({
     show: false,
   }),
+  props: {
+    proj: Array,
+  },
 };
 </script>

@@ -1,34 +1,10 @@
 {
   "tasks": [
     {
-      "title": "marquinhos",
-      "usuario": "marcoca",
-      "project": "eai",
-      "id": 34
-    },
-    {
-      "title": "cr",
-      "usuario": "cr",
-      "project": "eai",
-      "id": 35
-    },
-    {
-      "title": "aiaiaiaiaiaiaiiaiai",
-      "usuario": "asdasd",
-      "project": "eai",
-      "id": 38
-    },
-    {
-      "title": " uepa",
-      "usuario": "uepa ",
-      "project": "eai",
-      "id": 39
-    },
-    {
-      "title": "",
-      "usuario": "",
-      "project": "",
-      "id": 40
+      "title": "kuioiuo",
+      "usuario": "iuouioui",
+      "project": "Estudos",
+      "id": 1
     }
   ],
   "users": [
@@ -49,6 +25,16 @@
       "id": 2,
       "nome": "Estudos",
       "imagem": "https://conteudo.imguol.com.br/p/ecommerce/impulso-digital/pub/0c/2015/06/29/id11-50-conteudos-1435582986457_780x425.jpg"
+    },
+    {
+      "nome": "educacao",
+      "imagem": "",
+      "id": 3
+    },
+    {
+      "nome": "educacao",
+      "imagem": "",
+      "id": 4
     }
   ]
 }

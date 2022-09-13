@@ -22,6 +22,13 @@ export default {
       callback(response);
     });
   },
+  createProject(obj) {
+    fetch("http://localhost:3000/projetos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(obj),
+    });
+  },
   deleteTasks: (id, callback) => {
     fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" }).then(
       (response) => {
