@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <NavBar :voucriar="true" />
+
+    <ListagemTask :tasks="taskList" @Enviar-Delete="deleteTask" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import ListagemTask from "../components/ListagemTask.vue";
+import TasksApi from "../TasksApi";
+import NavBar from "../layouts/NavBar.vue";
 
 export default {
-  name: "HomeView",
   components: {
-    HelloWorld,
+    ListagemTask,
+    NavBar,
+  },
+  data: function () {
+    return {
+      taskList: [],
+    };
+  },
+
+  methods: {
+    getTask() {
+      TasksApi.getTasks((data) => {
+        this.taskList = data;
+        console.log(this.taskList);
+      });
+    },
+    deleteTask(id) {
+      TasksApi.deleteTasks(id, () => {
+        this.getTask();
+      });
+    },
+  },
+  created() {
+    this.getTask();
   },
 };
 </script>

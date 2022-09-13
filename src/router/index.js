@@ -1,6 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import LoginView from "../views/LoginView.vue";
+import CriadorEditor from "../views/CriadorEditor.vue";
+import RegistroView from "../views/RegistroView.vue";
+import PainelView from "../views/PainelView.vue";
+import ProjectsView from "../views/ProjectsView.vue";
+import TodoStart from "../views/TodoStart.vue";
 
 Vue.use(VueRouter);
 
@@ -8,6 +14,11 @@ const routes = [
   {
     path: "/",
     name: "home",
+    component: TodoStart,
+  },
+  {
+    path: "/listar",
+    name: "listar",
     component: HomeView,
   },
   {
@@ -18,6 +29,31 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
+  {
+    path: "/create",
+    name: "create",
+    component: CriadorEditor,
+  },
+  {
+    path: "/registro",
+    name: "registro",
+    component: RegistroView,
+  },
+  {
+    path: "/painel",
+    name: "painel",
+    component: PainelView,
+  },
+  {
+    path: "/projects",
+    name: "projects",
+    component: ProjectsView,
   },
 ];
 
