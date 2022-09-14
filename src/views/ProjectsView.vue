@@ -10,7 +10,7 @@
       <ProjectForm @create-project="createProject" />
     </div>
     <div v-if="!criando">
-      <CardProject :proj="projetos" />
+      <CardProject :proj="projetos" @delete-project="deleteProject" />
     </div>
   </div>
 </template>
@@ -41,6 +41,12 @@ export default {
         this.criando = false;
       }
     },
+
+    deleteProject(id) {
+      TasksApi.deleteProject(id, () => {
+        console.log("oi");
+      });
+    },
     createProject(obj) {
       TasksApi.createProject(obj);
     },
@@ -48,8 +54,9 @@ export default {
       TasksApi.getProject((res) => {
         let i = 0;
         while (i <= res.length) {
-          this.projetos.push(res[i].nome);
+          this.projetos.push([res[i].nome, res[i].id]);
           i++;
+          //essa gambiarra foi feita pq o comportamento normal da array tava zicado
         }
       });
       console.log(this.projetos);

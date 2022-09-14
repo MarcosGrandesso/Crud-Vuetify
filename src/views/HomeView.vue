@@ -2,7 +2,11 @@
   <div>
     <NavBar :voucriar="true" />
 
-    <ListagemTask :tasks="taskList" @Enviar-Delete="deleteTask" />
+    <ListagemTask
+      :tasks="taskList"
+      @Enviar-Delete="deleteTask"
+      @Enviar-Edit="editTask"
+    />
   </div>
 </template>
 
@@ -33,6 +37,9 @@ export default {
       TasksApi.deleteTasks(id, () => {
         this.getTask();
       });
+    },
+    editTask() {
+      this.$router.push("/create");
     },
   },
   created() {

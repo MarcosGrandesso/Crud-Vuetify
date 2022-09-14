@@ -36,4 +36,26 @@ export default {
       }
     );
   },
+  criarUsuario(dadosUsuario) {
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dadosUsuario),
+    });
+  },
+  logar(callback) {
+    fetch("http://localhost:3000/users").then((res) => {
+      res.json().then((response) => {
+        callback(response);
+      });
+    });
+  },
+
+  deleteProject: (id, callback) => {
+    fetch(`http://localhost:3000/projetos/${id}`, { method: "DELETE" }).then(
+      (response) => {
+        callback(response);
+      }
+    );
+  },
 };

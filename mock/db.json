@@ -1,40 +1,54 @@
 {
   "tasks": [
     {
-      "title": "kuioiuo",
-      "usuario": "iuouioui",
-      "project": "Estudos",
+      "title": "Teste",
+      "usuario": "Marcos",
+      "project": "",
       "id": 1
     }
   ],
   "users": [
     {
       "id": 1,
-      "email": "joao@example.com",
       "name": "João",
-      "team": "dev"
+      "senha": "joaozinho"
+    },
+    {
+      "name": "marcos",
+      "senha": "marquin",
+      "senha2": "marquin",
+      "id": 2
+    },
+    {
+      "name": "marcos",
+      "senha": "marcos",
+      "senha2": "marcos",
+      "id": 4
+    },
+    {
+      "name": "marcos",
+      "senha": "marquinho",
+      "senha2": "marquinho",
+      "id": 5
+    },
+    {
+      "name": "aaaaa",
+      "senha": "aaa",
+      "senha2": "aaa",
+      "id": 6
+    },
+    {
+      "name": "uepa",
+      "senha": "123",
+      "senha2": "123",
+      "id": 7
     }
   ],
   "projetos": [
     {
-      "id": 1,
-      "nome": "Financeiro",
-      "imagem": "https://conteudo.imguol.com.br/p/ecommerce/impulso-digital/pub/0c/2015/06/29/id11-50-conteudos-1435582986457_780x425.jpg"
-    },
-    {
-      "id": 2,
-      "nome": "Estudos",
-      "imagem": "https://conteudo.imguol.com.br/p/ecommerce/impulso-digital/pub/0c/2015/06/29/id11-50-conteudos-1435582986457_780x425.jpg"
-    },
-    {
-      "nome": "educacao",
+      "nome": "Educacao",
       "imagem": "",
-      "id": 3
-    },
-    {
-      "nome": "educacao",
-      "imagem": "",
-      "id": 4
+      "id": 1
     }
   ]
 }

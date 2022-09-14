@@ -25,7 +25,7 @@
       <v-card-actions>
         <v-btn color="red" text @click="sendDelete(task.id)"> Excluir </v-btn>
 
-        <v-btn color="orange" text> Editar </v-btn>
+        <v-btn color="orange" text @click="sendEdit(task.id)"> Editar </v-btn>
       </v-card-actions>
     </v-card>
   </div>
@@ -42,6 +42,9 @@ export default {
   methods: {
     sendDelete(id) {
       this.$emit("Enviar-Delete", id);
+    },
+    sendEdit(id) {
+      this.$emit("Enviar-Edit", id);
     },
   },
 };

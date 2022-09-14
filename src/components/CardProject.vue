@@ -11,12 +11,14 @@
         height="200px"
       ></v-img>
 
-      <v-card-title> {{ projeto }} </v-card-title>
+      <v-card-title> {{ projeto[0] }} </v-card-title>
 
       <v-card-subtitle> </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn color="orange lighten-2" text> Explore </v-btn>
+        <v-btn color="red lighten-1" text @click="sendID(projeto[1])">
+          Excuir
+        </v-btn>
 
         <v-spacer></v-spacer>
 
@@ -49,6 +51,11 @@ export default {
   }),
   props: {
     proj: Array,
+  },
+  methods: {
+    sendID(id) {
+      this.$emit("delete-project", id);
+    },
   },
 };
 </script>

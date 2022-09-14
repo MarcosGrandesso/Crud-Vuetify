@@ -20,6 +20,13 @@ const routes = [
     path: "/listar",
     name: "listar",
     component: HomeView,
+    children: [
+      {
+        path: ":id",
+        name: "edicao",
+        component: CriadorEditor,
+      },
+    ],
   },
   {
     path: "/about",
