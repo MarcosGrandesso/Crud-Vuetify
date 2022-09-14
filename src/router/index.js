@@ -7,6 +7,8 @@ import RegistroView from "../views/RegistroView.vue";
 import PainelView from "../views/PainelView.vue";
 import ProjectsView from "../views/ProjectsView.vue";
 import TodoStart from "../views/TodoStart.vue";
+import FilhoView from "../views/FilhoView.vue";
+import EditorView from "../views/EditorView.vue";
 
 Vue.use(VueRouter);
 
@@ -18,13 +20,17 @@ const routes = [
   },
   {
     path: "/listar",
-    name: "listar",
     component: HomeView,
     children: [
       {
         path: ":id",
         name: "edicao",
-        component: CriadorEditor,
+        component: EditorView,
+      },
+      {
+        path: "",
+        name: "listar",
+        component: FilhoView,
       },
     ],
   },

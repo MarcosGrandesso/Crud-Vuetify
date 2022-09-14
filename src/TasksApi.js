@@ -58,4 +58,13 @@ export default {
       }
     );
   },
+  EditTasks(id, parametroSinal, callback) {
+    fetch(`http://localhost:3000/tasks/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(parametroSinal),
+    }).then((response) => {
+      callback(response);
+    });
+  },
 };

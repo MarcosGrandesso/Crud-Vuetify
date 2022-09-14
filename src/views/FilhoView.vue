@@ -1,17 +1,23 @@
 <template>
   <div>
     <router-view></router-view>
-
     <NavBar :voucriar="true" />
+    <ListagemTask
+      :tasks="taskList"
+      @Enviar-Delete="deleteTask"
+      @Enviar-Edit="editTask"
+    />
   </div>
 </template>
 
 <script>
+import ListagemTask from "../components/ListagemTask.vue";
 import TasksApi from "../TasksApi";
 import NavBar from "../layouts/NavBar.vue";
 
 export default {
   components: {
+    ListagemTask,
     NavBar,
   },
   data: function () {

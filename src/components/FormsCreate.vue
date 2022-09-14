@@ -16,8 +16,11 @@
       <v-select :items="itens" v-model="criacao.project" label="Item" required>
       </v-select>
 
-      <v-btn color="success" class="mr-4" @click="sendCriar">
+      <v-btn color="success" class="mr-4" @click="sendCriar" v-if="!toEditando">
         Criar Task
+      </v-btn>
+      <v-btn color="warning" class="mr-4" @click="sendEditar" v-if="toEditando">
+        Editar Task
       </v-btn>
     </v-form>
   </div>
@@ -36,10 +39,14 @@ export default {
   },
   props: {
     itens: Array,
+    toEditando: Boolean,
   },
   methods: {
     sendCriar() {
       this.$emit("Criar-Task", this.criacao);
+    },
+    sendEditar() {
+      this.$emit("Editar-Task", this.criacao);
     },
   },
 };
