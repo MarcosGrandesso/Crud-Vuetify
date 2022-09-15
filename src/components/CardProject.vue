@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-center flex-column wid">
     <v-card
-      class="mx-auto"
+      class="mx-auto mt-10"
       max-width="344"
       :key="projeto.id"
       v-for="projeto in proj"

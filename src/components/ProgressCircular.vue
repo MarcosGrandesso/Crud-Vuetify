@@ -5,16 +5,20 @@
       :key="circulo.id"
       :rotate="360"
       :size="100"
-      :width="12"
-      :value="value"
-      aquiiiiiii
+      :width="10"
+      :value="(achaX(circulo.nome).length / listaFull.length) * 100"
       :color="
-        circulo.nome == 'Financeiro' || circulo.nome == 'educacao'
+        circulo.nome == 'Financeiro' || circulo.nome == 'Educacao'
           ? 'teal'
           : 'red'
       "
+      class="circulo"
     >
-      <p>{{ value }} <br />{{ circulo.nome }}</p>
+      <p>
+        {{ (achaX(circulo.nome).length / listaFull.length) * 100 }} <br />{{
+          circulo.nome
+        }}
+      </p>
     </v-progress-circular>
 
     <a @click="redirectProjects">Cadastro De Tipos de Projetos das tasks</a>
@@ -28,11 +32,11 @@ export default {
   data() {
     return {
       interval: {},
-      value: 12,
     };
   },
   props: {
     tasks: Array,
+    listaFull: Array,
   },
   methods: {
     redirectProjects() {
@@ -41,9 +45,12 @@ export default {
     redirectListar() {
       this.$router.push("/listar");
     },
-  },
-  beforeDestroy() {
-    clearInterval(this.interval);
+    achaX(nome) {
+      return this.listaFull.filter((titulo) => titulo.project.includes(nome));
+    },
+    beforeDestroy() {
+      clearInterval(this.interval);
+    },
   },
   // mounted() {
   //   this.interval = setInterval(() => {

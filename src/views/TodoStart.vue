@@ -2,19 +2,14 @@
   <div>
     <NavBar :voulogar="true" />
 
-    <v-parallax
-      src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-      height="1000"
-    >
-      <div class="d-flex justify-center flex-column wid">
-        <v-row align="center" justify="space-around">
-          <v-btn tile color="success" @click="redirectLogin">
-            <v-icon left> mdi-pencil </v-icon>
-            Clique aqui para comecar a mexer nessa todoList
-          </v-btn>
-        </v-row>
-      </div>
-    </v-parallax>
+    <div class="d-flex justify-center flex-column wid">
+      <v-row align="center" justify="space-around">
+        <v-btn tile color="success" @click="redirectLogin">
+          <v-icon left> mdi-pencil </v-icon>
+          Clique aqui para comecar a mexer nessa todoList
+        </v-btn>
+      </v-row>
+    </div>
   </div>
 </template>
 

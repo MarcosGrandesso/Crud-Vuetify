@@ -2,7 +2,7 @@
   <div>
     <NavBar />
     <div class="d-flex justify-center flex-column wid">
-      <ProgressCircular :tasks="listaTarefas" />
+      <ProgressCircular :tasks="listaTarefas" :listaFull="listaTarefas2" />
     </div>
   </div>
 </template>
@@ -30,6 +30,10 @@ export default {
       // let retorno = this.listaTarefas.filter((projetos) =>
       //   this.listaTarefas2.push(projetos.nome)
       // )
+
+      TasksApi.getTasks((callback) => {
+        this.listaTarefas2 = callback;
+      });
     });
   },
 };
