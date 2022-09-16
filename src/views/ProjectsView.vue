@@ -9,28 +9,34 @@
     <div v-if="criando">
       <ProjectForm @create-project="createProject" />
     </div>
+
     <div v-if="!criando">
       <CardProject :proj="projetos" @delete-project="deleteProject" />
     </div>
+    <FooTer />
   </div>
 </template>
 
 <script>
 import NavBar from "../layouts/NavBar.vue";
 import CardProject from "../components/CardProject.vue";
-import ProjectForm from "../components/ProjectForm.vue";
-import TasksApi from "../TasksApi";
+import FooTer from "../layouts/FooTer.vue";
+import ProjectForm from "@components/ProjectForm.vue";
+import TasksApi from "../api/TasksApi";
 
 export default {
   components: {
     CardProject,
     NavBar,
     ProjectForm,
+    FooTer,
   },
   data: function () {
     return {
       criando: false,
       projetos: [],
+      model: 0,
+      colors: ["primary", "secondary", "yellow darken-2", "red", "orange"],
     };
   },
   methods: {
@@ -67,3 +73,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.carr {
+  width: 50rem;
+}
+</style>

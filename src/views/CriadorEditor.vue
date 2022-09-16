@@ -3,6 +3,7 @@
     <NavBar />
 
     <FormsCreate :itens="projetos" @Criar-Task="criarTask" />
+    <FooTer />
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import NavBar from "../layouts/NavBar.vue";
 
 import FormsCreate from "../components/FormsCreate.vue";
-import TasksApi from "../TasksApi";
+import FooTer from "../layouts/FooTer.vue";
+import TasksApi from "../api/TasksApi";
 
 export default {
   components: {
     FormsCreate,
+    FooTer,
     NavBar,
   },
   data: function () {

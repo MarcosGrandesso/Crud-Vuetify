@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="orange" dark style="padding: 0px">
+  <v-app-bar app color="red darken-3" dark style="padding: 0px">
     <div class="d-flex align-center">
       <h1>Kanban with Vuetify</h1>
     </div>

@@ -10,11 +10,13 @@
         </v-btn>
       </v-row>
     </div>
+    <FooTer />
   </div>
 </template>
 
 <script>
 import NavBar from "../layouts/NavBar.vue";
+import FooTer from "../layouts/FooTer.vue";
 
 export default {
   methods: {
@@ -23,9 +25,14 @@ export default {
     },
   },
   components: {
+    FooTer,
     NavBar,
   },
 };
 </script>
 
-<style></style>
+<style>
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+</style>

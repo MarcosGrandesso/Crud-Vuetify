@@ -1,16 +1,24 @@
 <template>
   <div>
     <NavBar />
-    <div class="d-flex justify-center flex-column wid">
+
+    <div class="d-flex justify-center flex-column divfsxl">
+      <h1 class="font-weight-black fsxl">Estatisticas Sobre Suas tasks</h1>
+    </div>
+    <div
+      class="d-flex justify-center flex-column wid grey lighten-5 rounded-lg"
+    >
       <ProgressCircular :tasks="listaTarefas" :listaFull="listaTarefas2" />
     </div>
+    <FooTer />
   </div>
 </template>
 
 <script>
 import ProgressCircular from "../components/ProgressCircular.vue";
 import NavBar from "../layouts/NavBar.vue";
-import TasksApi from "../TasksApi";
+import FooTer from "../layouts/FooTer.vue";
+import TasksApi from "../api/TasksApi";
 
 export default {
   data: function () {
@@ -22,6 +30,7 @@ export default {
   components: {
     ProgressCircular,
     NavBar,
+    FooTer,
   },
   created() {
     TasksApi.getProject((callback) => {
@@ -39,4 +48,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.fsxl {
+  font-size: 3rem;
+}
+
+.divfsxl {
+  width: 35%;
+  margin: auto;
+  margin-top: 5rem;
+}
+</style>

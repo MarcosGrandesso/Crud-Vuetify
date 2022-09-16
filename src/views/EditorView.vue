@@ -7,18 +7,21 @@
       :itens="projetos"
       @Editar-Task="editarTask"
     />
+    <FooTer />
   </div>
 </template>
 
 <script>
 import NavBar from "../layouts/NavBar.vue";
 
+import FooTer from "../layouts/FooTer.vue";
 import FormsCreate from "../components/FormsCreate.vue";
-import TasksApi from "../TasksApi";
+import TasksApi from "../api/TasksApi";
 
 export default {
   components: {
     FormsCreate,
+    FooTer,
     NavBar,
   },
   data: function () {

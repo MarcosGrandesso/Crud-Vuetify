@@ -3,15 +3,18 @@
     <router-view></router-view>
 
     <NavBar :voucriar="true" />
+    <FooTer />
   </div>
 </template>
 
 <script>
-import TasksApi from "../TasksApi";
+import TasksApi from "../api/TasksApi";
 import NavBar from "../layouts/NavBar.vue";
+import FooTer from "../layouts/FooTer.vue";
 
 export default {
   components: {
+    FooTer,
     NavBar,
   },
   data: function () {

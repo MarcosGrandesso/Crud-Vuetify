@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center mt-16">
     <v-progress-circular
       v-for="circulo in tasks"
       :key="circulo.id"
@@ -21,9 +21,14 @@
       </p>
     </v-progress-circular>
 
-    <a @click="redirectProjects">Cadastro De Tipos de Projetos das tasks</a>
-    <br />
-    <a @click="redirectListar">Ir Para Listagem</a>
+    <div>
+      <v-btn @click="redirectProjects" text color="primary">
+        Cadastro De Tipos de Projetos das tasks</v-btn
+      >
+
+      <br />
+      <v-btn @click="redirectListar" text color="primary"> Para Listagem</v-btn>
+    </div>
   </div>
 </template>
 

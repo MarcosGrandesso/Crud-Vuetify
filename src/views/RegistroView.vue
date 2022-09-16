@@ -2,13 +2,16 @@
   <div>
     <NavBar :voulogar="true" />
     <FormsLogin @registrei="redirectLogin" :errors="erros" />
+    <FooTer />
   </div>
 </template>
 
 <script>
 import NavBar from "../layouts/NavBar.vue";
 import FormsLogin from "../components/FormsLogin.vue";
-import TasksApi from "../TasksApi";
+import FooTer from "../layouts/FooTer.vue";
+
+import TasksApi from "../api/TasksApi";
 
 export default {
   data: function () {
@@ -39,6 +42,7 @@ export default {
     },
   },
   components: {
+    FooTer,
     FormsLogin,
     NavBar,
   },

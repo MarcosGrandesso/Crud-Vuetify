@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-center flex-column wid">
+  <div class="d-flex justify-center flex-row wid">
     <v-card
       class="mx-auto mt-10"
       max-width="344"
@@ -59,3 +59,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.wid {
+  width: 70rem;
+  margin: auto;
+  margin-top: 5rem;
+  gap: 20px;
+}
+</style>
