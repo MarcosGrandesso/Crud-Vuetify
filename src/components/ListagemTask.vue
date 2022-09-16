@@ -9,14 +9,16 @@
       >
         <div class="minha-nota" :style="style">
           <v-card class="mx-auto mt-10" max-width="400">
-            <v-parallax
+            <!-- <v-parallax
               height="170"
               src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
             >
               <h2>{{ task.title }}</h2>
-            </v-parallax>
+            </v-parallax> -->
 
-            <v-card-subtitle class="pb-0"> ID {{ task.id }} </v-card-subtitle>
+            <v-card-subtitle class="pb-0">
+              <h2>{{ task.title }}</h2>
+            </v-card-subtitle>
 
             <v-card-text class="text--primary">
               <div>{{ task.usuario }}</div>
