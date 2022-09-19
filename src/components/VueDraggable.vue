@@ -34,7 +34,7 @@
               :key="item.id"
               :data-id="item.id"
             >
-              <!-- <v-parallax
+              <!-- <v-parallaxasdsa
               height="170"
               src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
             >
@@ -75,29 +75,11 @@
 </template>
 
 <script>
-//= import ListagemTask from "../components/ListagemTask.vue";
+//= import ListagemTask from "../components/ListagemTask.vue";fdsfd
 
 export default {
   data() {
     return {
-      groups: [
-        {
-          id: 1,
-          name: "To Do",
-          items: this.tasks,
-          // items: [{ id: 1, title: "Mock Todo", groupId: 1 }],
-        },
-        {
-          id: 2,
-          name: "In Progress",
-          items: [],
-        },
-        {
-          id: 3,
-          name: "Done",
-          items: [],
-        },
-      ],
       options: {
         dropzoneSelector: ".drag-inner-list",
         draggableSelector: ".drag-item",
@@ -117,9 +99,7 @@ export default {
     },
   },
   created() {},
-  props: {
-    tasks: Array,
-  },
+  props: ["groups"],
 };
 </script>
 

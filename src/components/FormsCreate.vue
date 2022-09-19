@@ -31,10 +31,10 @@ export default {
   data: function () {
     return {
       criacao: {
-        title: "aaaaa",
+        title: "",
         usuario: "",
         project: "",
-        groupId: "1",
+        status: "pending",
       },
     };
   },

@@ -2,13 +2,9 @@
   <div>
     <router-view></router-view>
     <NavBar :voucriar="true" />
-    <!-- <ListagemTask
-      :tasks="taskList"
-      @Enviar-Delete="deleteTask"
-      @Enviar-Edit="editTask"
-    /> -->
+
     <VueDraggable
-      :tasks="taskList"
+      :groups="taskList"
       @Enviar-Delete="deleteTask"
       @Enviar-Edit="editTask"
     />
@@ -18,7 +14,6 @@
 </template>
 
 <script>
-// import ListagemTask from "../components/ListagemTask.vue";
 import VueDraggable from "../components/VueDraggable.vue";
 import TasksApi from "../api/TasksApi";
 import NavBar from "../layouts/NavBar.vue";
@@ -26,7 +21,6 @@ import FooTer from "../layouts/FooTer.vue";
 
 export default {
   components: {
-    // ListagemTask,
     VueDraggable,
     FooTer,
     NavBar,
@@ -40,7 +34,34 @@ export default {
   methods: {
     getTask() {
       TasksApi.getTasks((data) => {
-        this.taskList = data;
+        let itemDone = data.filter((tarefa) => {
+          return tarefa.status.includes("done");
+        });
+        let itemProgress = data.filter((tarefa) => {
+          return tarefa.status.includes("progress");
+        });
+        let itemTodo = data.filter((tarefa) => {
+          return tarefa.status.includes("pending");
+        });
+
+        this.taskList = [
+          {
+            id: 1,
+            name: "To Do",
+            items: itemTodo,
+            // items: [{ id: 1, title: "Mock Todo", groupId: 1 }],
+          },
+          {
+            id: 2,
+            name: "In Progress",
+            items: itemProgress,
+          },
+          {
+            id: 3,
+            name: "Done",
+            items: itemDone,
+          },
+        ];
       });
     },
     deleteTask(id) {
