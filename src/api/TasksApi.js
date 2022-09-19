@@ -6,7 +6,6 @@ export default {
     api
       .get("/api/tasks")
       .then((response) => {
-        console.log(response.data);
         cb(response.data);
       })
       .catch((error) => {
@@ -22,7 +21,6 @@ export default {
     });
   },
   createTask(criacao) {
-    console.log(criacao);
     api.post("http://localhost:3001/api/tasks", criacao);
   },
   //creteproj pegando
@@ -72,5 +70,24 @@ export default {
       .catch((error) => {
         console.log("erro:", error);
       });
+  },
+  // alteraçoes de estado nas tasks
+  toPending(tarefa) {
+    tarefa.status = "pending";
+    api
+      .post(`http://localhost:3001/api/tasks/${tarefa.id}`, tarefa)
+      .then(() => {});
+  },
+  toProgress(tarefa) {
+    tarefa.status = "progress";
+    api
+      .post(`http://localhost:3001/api/tasks/${tarefa.id}`, tarefa)
+      .then(() => {});
+  },
+  toDone(tarefa) {
+    tarefa.status = "done";
+    api
+      .post(`http://localhost:3001/api/tasks/${tarefa.id}`, tarefa)
+      .then(() => {});
   },
 };

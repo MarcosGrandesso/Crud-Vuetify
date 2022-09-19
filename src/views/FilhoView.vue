@@ -7,6 +7,9 @@
       :groups="taskList"
       @Enviar-Delete="deleteTask"
       @Enviar-Edit="editTask"
+      @Turn-pending="changeToPending"
+      @Turn-progress="changeToProgress"
+      @Turn-done="changeToDone"
     />
 
     <FooTer />
@@ -72,6 +75,16 @@ export default {
     },
     editTask() {
       this.$router.push("/create");
+    },
+    /// alternancia de status tasks
+    changeToPending(tarefa) {
+      TasksApi.toPending(tarefa);
+    },
+    changeToProgress(tarefa) {
+      TasksApi.toProgress(tarefa);
+    },
+    changeToDone(tarefa) {
+      TasksApi.toDone(tarefa);
     },
   },
   created() {

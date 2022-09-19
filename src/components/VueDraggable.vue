@@ -1,12 +1,5 @@
 <template>
-  <!--     colocar isso aqui no elemento com id= to depois que eu consertar as funcoes 
-                :to="{    name: 'edicao',
-                    params: { id: task.id, obj: task },
-                  }" -->
   <div class="drag-container" v-drag-and-drop:options="options">
-    <!-- <h2>list 1 ={{ groups[0].items }}</h2>
-    <h2>list 2 ={{ groups[1].items }}</h2>
-    <h2>list 3 ={{ groups[2].items }}</h2> -->
     <button @click="editTask">
       <v-icon color="black"> fas fa-plus</v-icon>
     </button>
@@ -33,6 +26,7 @@
               v-for="item in group.items"
               :key="item.id"
               :data-id="item.id"
+              @click="takeObject(item)"
             >
               <!-- <v-parallaxasdsa
               height="170"
@@ -48,7 +42,7 @@
               <v-card-text class="text--primary pb-0">
                 <div>ID {{ item.id }}</div>
 
-                <div>hitsunday Island, Whitsunday Islands</div>
+                <div>{{ item.status }}, {{ item.project }}</div>
               </v-card-text>
 
               <v-card-actions>
@@ -84,18 +78,42 @@ export default {
         dropzoneSelector: ".drag-inner-list",
         draggableSelector: ".drag-item",
       },
+      tarefaAtual: null,
     };
   },
   // kaasssss
   methods: {
     onGroupsChange(e) {
-      console.log({ e });
+      // To Do Group
+      for (let tarefa of e[0].items) {
+        // console.log(tarefa.status);
+        if (tarefa.status != "pending") {
+          this.$emit("Turn-pending", tarefa);
+        }
+      }
+      //in progress
+      for (let tarefa of e[1].items) {
+        // console.log(tarefa.status);
+        if (tarefa.status != "progress") {
+          this.$emit("Turn-progress", tarefa);
+        }
+      }
+
+      for (let tarefa of e[2].items) {
+        // console.log(tarefa.status);
+        if (tarefa.status != "done") {
+          this.$emit("Turn-done", tarefa);
+        }
+      }
     },
     sendDelete(id) {
       this.$emit("Enviar-Delete", id);
     },
     editTask() {
       this.$router.push("/create");
+    },
+    takeObject(obj) {
+      this.tarefaAtual = obj;
     },
   },
   created() {},
@@ -205,7 +223,7 @@ ul {
 
   /* items grabbed state */
   &[aria-grabbed="true"] {
-    background: #5cc1a6;
+    background: #92aaa452;
     color: #fff;
   }
 
