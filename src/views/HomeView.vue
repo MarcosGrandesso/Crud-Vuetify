@@ -23,7 +23,6 @@ export default {
     getTask() {
       TasksApi.getTasks((data) => {
         this.taskList = data;
-        console.log(this.taskList);
       });
     },
     deleteTask(id) {

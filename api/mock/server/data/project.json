@@ -1,10 +1,12 @@
 [
   {
     "id": 1,
-    "name": "Estudos"
+    "nome": "Estudos",
+    "imagem": ""
   },
   {
     "id": 2,
-    "name": "Saúde"
+    "nome": "Saúde",
+    "imagem": ""
   }
 ]

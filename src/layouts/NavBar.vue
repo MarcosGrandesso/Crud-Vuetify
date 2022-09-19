@@ -6,17 +6,9 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon>
-      <v-icon>fa-solid fa-magnifying-glass</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon>fa-regular fa-face-grin-hearts</v-icon>
-    </v-btn>
-
-    <v-btn icon :to="{ name: 'home' }">
-      <v-icon>fa-solid fa-ellipsis-vertical</v-icon>
-    </v-btn>
+    <!-- <button @click="redirect">
+      <v-toolbar-title>Criar uma nova task </v-toolbar-title>
+    </button> -->
   </v-toolbar>
 </template>
 
@@ -27,6 +19,7 @@ export default {
     version: settings.version,
     nodeEnv: settings.nodeEnv,
   }),
+  methods: {},
 };
 </script>
 <style scoped>

@@ -1,9 +1,15 @@
 <template>
-  <!-- :to="{    colocar isso aqui no elemento com id= to depois que eu consertar as funcoes 
-                    name: 'edicao',
+  <!--     colocar isso aqui no elemento com id= to depois que eu consertar as funcoes 
+                :to="{    name: 'edicao',
                     params: { id: task.id, obj: task },
                   }" -->
   <div class="drag-container" v-drag-and-drop:options="options">
+    <!-- <h2>list 1 ={{ groups[0].items }}</h2>
+    <h2>list 2 ={{ groups[1].items }}</h2>
+    <h2>list 3 ={{ groups[2].items }}</h2> -->
+    <button @click="editTask">
+      <v-icon color="black"> fas fa-plus</v-icon>
+    </button>
     <ul class="drag-list">
       <li
         class="drag-column grey lighten-5"
@@ -36,21 +42,29 @@
             </v-parallax> -->
 
               <v-card-subtitle class="pb-0">
-                <h2>Titulo</h2>
+                <h2>{{ item.title }}</h2>
               </v-card-subtitle>
 
               <v-card-text class="text--primary pb-0">
-                <div>ID</div>
+                <div>ID {{ item.id }}</div>
 
                 <div>hitsunday Island, Whitsunday Islands</div>
               </v-card-text>
 
               <v-card-actions>
-                <v-btn color="red" text @click="sendDelete(task.id)">
+                <v-btn color="red" text @click="sendDelete(item.id)">
                   Excluir
                 </v-btn>
 
-                <v-btn id="aqui to " color="orange" text> Editar </v-btn>
+                <v-btn
+                  color="orange"
+                  text
+                  :to="{
+                    name: 'edicao',
+                    params: { id: item.id, obj: item },
+                  }"
+                  >Editar
+                </v-btn>
               </v-card-actions>
             </v-card>
           </div>
@@ -70,30 +84,18 @@ export default {
         {
           id: 1,
           name: "To Do",
-          items: [
-            { id: 1, name: "Item 1", groupId: 1 },
-            { id: 2, name: "Item 2", groupId: 1 },
-            { id: 3, name: "Item 3", groupId: 1 },
-          ],
+          items: this.tasks,
+          // items: [{ id: 1, title: "Mock Todo", groupId: 1 }],
         },
         {
           id: 2,
           name: "In Progress",
-          items: [
-            { id: 4, name: "Item 4", groupId: 2 },
-            { id: 5, name: "Item 5", groupId: 2 },
-            { id: 6, name: "Item 6", groupId: 2 },
-          ],
+          items: [],
         },
         {
           id: 3,
           name: "Done",
-          items: [
-            { id: 7, name: "Item 7", groupId: 3 },
-            { id: 8, name: "Item 8", groupId: 3 },
-            { id: 9, name: "Item 9", groupId: 3 },
-            { id: 10, name: "Item 10", groupId: 3 },
-          ],
+          items: [],
         },
       ],
       options: {
@@ -102,13 +104,21 @@ export default {
       },
     };
   },
-  //   components: {
-  //     ListagemTask,
-  //   },
+  // kaasssss
   methods: {
     onGroupsChange(e) {
       console.log({ e });
     },
+    sendDelete(id) {
+      this.$emit("Enviar-Delete", id);
+    },
+    editTask() {
+      this.$router.push("/create");
+    },
+  },
+  created() {},
+  props: {
+    tasks: Array,
   },
 };
 </script>

@@ -2,28 +2,31 @@
   <div>
     <router-view></router-view>
     <NavBar :voucriar="true" />
-    <ListagemTask
+    <!-- <ListagemTask
+      :tasks="taskList"
+      @Enviar-Delete="deleteTask"
+      @Enviar-Edit="editTask"
+    /> -->
+    <VueDraggable
       :tasks="taskList"
       @Enviar-Delete="deleteTask"
       @Enviar-Edit="editTask"
     />
-    <VueDraggable />
 
     <FooTer />
   </div>
 </template>
 
 <script>
-import ListagemTask from "../components/ListagemTask.vue";
+// import ListagemTask from "../components/ListagemTask.vue";
 import VueDraggable from "../components/VueDraggable.vue";
-
 import TasksApi from "../api/TasksApi";
 import NavBar from "../layouts/NavBar.vue";
 import FooTer from "../layouts/FooTer.vue";
 
 export default {
   components: {
-    ListagemTask,
+    // ListagemTask,
     VueDraggable,
     FooTer,
     NavBar,
@@ -38,7 +41,6 @@ export default {
     getTask() {
       TasksApi.getTasks((data) => {
         this.taskList = data;
-        console.log(this.taskList);
       });
     },
     deleteTask(id) {

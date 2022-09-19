@@ -62,7 +62,7 @@ export default {
 
 <style scoped>
 .wid {
-  width: 70rem;
+  width: 33%;
   margin: auto;
   margin-top: 5rem;
   gap: 20px;

@@ -31,9 +31,10 @@ export default {
   data: function () {
     return {
       criacao: {
-        title: "",
+        title: "aaaaa",
         usuario: "",
         project: "",
+        groupId: "1",
       },
     };
   },
@@ -47,6 +48,7 @@ export default {
     },
     sendEditar() {
       this.$emit("Editar-Task", this.criacao);
+      console.log(this.criacao.title);
     },
   },
 };
