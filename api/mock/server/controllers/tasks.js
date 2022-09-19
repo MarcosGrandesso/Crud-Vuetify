@@ -63,8 +63,9 @@ module.exports = {
       return;
     }
     const { id } = req.params;
-    const task = data.tasks.find((t) => t.id === id);
+    const task = data.tasks.find((t) => t.id == id);
     const index = data.tasks.indexOf(task);
+    console.log(task, index);
     data.tasks.splice(index, 1);
     res.send(task);
   },

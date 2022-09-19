@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ objeto }}
     <NavBar />
     <FormsCreate
       :toEditando="true"

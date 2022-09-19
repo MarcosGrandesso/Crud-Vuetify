@@ -65,6 +65,7 @@ export default {
       });
     },
     deleteTask(id) {
+      console.log("deletei", id);
       TasksApi.deleteTasks(id, () => {
         this.getTask();
       });
