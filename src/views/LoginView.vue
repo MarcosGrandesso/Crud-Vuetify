@@ -50,7 +50,7 @@
             </v-form>
             <p class="ma-4">
               <span class="subtitle-1"
-                >Não tenho conta! Fazer <a href="">Cadastro</a></span
+                >cadastro esta off, logue com jorge senha jorge</span
               >
             </p>
           </v-card>
